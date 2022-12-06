@@ -31,7 +31,7 @@ function draw(ctx, t) {
 
     function circle(x, y, r) {
         ctx.beginPath();
-        ctx.arc(x,y,r, 0, 2 * Math.PI);
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
     }
 
     //All lines 2px wide and black
@@ -44,21 +44,29 @@ function draw(ctx, t) {
     ctx.fill();
     ctx.stroke();
 
-        //Drawing the eye of emoji 
-        circle(80, 100, 10);
-        ctx.fillStyle = 'black';
-        ctx.fill();
-        ctx.stroke();
+    //Drawing the eye of emoji 
+    circle(80, 100, 8);
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.stroke();
 
-        //Drawing the eye of emoji 
-        circle(-60, 600, 10);
-        ctx.fillStyle = 'black';
-        ctx.fill();
-        ctx.stroke();
-    
+    //Drawing another eye 
+    circle(108, 94, 8);
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.stroke();
+
+    //We are making mouth of the emoji 
+    ctx.beginPath();
+    ctx.arc(100, 100, 15, .25 * Math.PI, .70 * Math.PI);
+    ctx.stroke();
+
+
+
 }
 
 // We will now create snowfall. 
+
 let addSnow = () => {
     const random = (min, max) => Math.random * (max - min) + min
     let screenwidth = px
@@ -71,6 +79,7 @@ let addSnow = () => {
     snow.style.backgroundcolor = "white"
     snow.style.borderRadius = "60%"
     snow.style.index = "100"
+
 }
 
 
