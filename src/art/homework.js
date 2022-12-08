@@ -15,9 +15,6 @@ let n = makeNoise3D();
  * @returns The RGB color to display at the x,y location at time t
  */
 function shade(x, y, t) {
-    //❓❓ Question 2
-    //❓❓ Question 3
-    //❓❓ Question 4
     return [0.65, 0.45, 0.32];
 }
 
@@ -26,6 +23,8 @@ function shade(x, y, t) {
  * @param ctx - The 2d drawing context
  * @param t -The time in seconds
  */
+
+// We start drawing a circle
 function draw(ctx, t) {
     //See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
 
@@ -61,24 +60,27 @@ function draw(ctx, t) {
     ctx.arc(100, 100, 15, .25 * Math.PI, .70 * Math.PI);
     ctx.stroke();
 
-
+    addSnow(ctx);
 
 }
 
-// We will now create snowfall. 
+// We will now draw snow ❄️. 
 
-let addSnow = () => {
-    const random = (min, max) => Math.random * (max - min) + min
-    let screenwidth = px
-    let screenheight = px
+let addSnow = (ctx) => {
+    
+    function circle(x, y, r) {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+    }
 
-    let snow = document.createElement("div");
-    snow.style = "fixed";
-    snow.stylewidth = "10px";
-    snow.styleheigth = "10px";
-    snow.style.backgroundcolor = "white"
-    snow.style.borderRadius = "60%"
-    snow.style.index = "100"
+    const random = (min, max) => Math.random() * (max - min) + min;
+    let x = random(0,250);
+    let y = random(0,250);
+
+    circle(y, x, 5);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.stroke();
 
 }
 
